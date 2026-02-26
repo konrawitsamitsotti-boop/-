@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>นิยายหลอนดี</title>
+
+<style>
+body{
+    margin:0;
+    background:#0f0f0f;
+    color:#e6e6e6;
+    font-family:Georgia, serif;
+    cursor:none; /* ซ่อนเมาส์ปกติ */
+}
+
+/* วงกลมเมาส์แดง */
+.cursor{
+    width:22px;
+    height:22px;
+    border:2px solid #aa0000;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 15px rgba(170,0,0,0.8);
+    transition:transform .08s ease;
+    z-index:9999;
+}
+
+/* หัวเว็บ */
+header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+header h1{
+    font-size:48px;
+    color:#aa0000;
+    letter-spacing:3px;
+    text-shadow:0 0 12px rgba(170,0,0,0.6);
+}
+
+header p{
+    color:#aaa;
+    font-style:italic;
+    margin-top:10px;
+}
+
+/* หมวดหมู่ */
+.nav-container{
+    display:flex;
+    justify-content:center;
+    margin-top:60px;
+}
+
+.nav-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
+    width:600px;
+}
+
+.nav-card{
+    border:1px solid #aa0000;
+    padding:35px 20px;
+    text-align:center;
+    text-decoration:none;
+    color:#aa0000;
+    transition:.3s;
+    letter-spacing:1px;
+}
+
+.nav-card:hover{
+    background:#aa0000;
+    color:#000;
+    box-shadow:0 0 20px rgba(170,0,0,0.7);
+}
+
+/* footer */
+footer{
+    text-align:center;
+    margin-top:120px;
+    padding:30px;
+    color:#555;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<header>
+    <h1>นิยายหลอนดี</h1>
+    <p>สิ่งที่คุณอ่านคุณอาจไม่ได้อ่าน แต่มันอาจกำลังอ่านคุณ</p>
+</header>
+
+<div class="nav-container">
+    <div class="nav-grid">
+        <a href="stories.html" class="nav-card">
+            รวมนิยายสยองขวัญ
+        </a>
+
+        <a href="about.html" class="nav-card">
+            คำอธิบาย
+        </a>
+    </div>
+</div>
+
+<footer>
+© 2026 คุณไม่ได้อยู่เพียงลำพัง
+</footer>
+
+<script>
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+/* ขยายตอน hover ปุ่ม */
+document.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('mouseenter',()=>{
+        cursor.style.transform="translate(-50%,-50%) scale(1.8)";
+    });
+    link.addEventListener('mouseleave',()=>{
+        cursor.style.transform="translate(-50%,-50%) scale(1)";
+    });
+});
+</script>
+
+</body>
+</html>
