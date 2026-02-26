@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>นิยายเรื่องเดียวจบ</title>
+
 <style>
 body{
     background:#0b0b0b;
@@ -10,11 +11,54 @@ body{
     font-family:Georgia, serif;
     padding:60px;
 }
-h1{ color:#aa0000; }
-.story{
-    margin:20px 0;
+
+h1{
+    color:#aa0000;
+    text-align:center;
+    margin-bottom:50px;
 }
-a{ color:#aa0000; text-decoration:none; }
+
+/* การ์ดนิยาย */
+.story-card{
+    display:flex;
+    background:#111;
+    border:1px solid #aa0000;
+    margin-bottom:30px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.story-card:hover{
+    box-shadow:0 0 20px rgba(170,0,0,0.6);
+}
+
+.story-card img{
+    width:180px;
+    object-fit:cover;
+}
+
+.story-content{
+    padding:20px;
+}
+
+.story-content h3{
+    margin-top:0;
+}
+
+.story-content a{
+    color:#aa0000;
+    text-decoration:none;
+}
+
+.story-content p{
+    color:#bbb;
+    line-height:1.6;
+}
+
+a.back{
+    color:#aa0000;
+    text-decoration:none;
+}
 </style>
 </head>
 
@@ -22,13 +66,22 @@ a{ color:#aa0000; text-decoration:none; }
 
 <h1>นิยายเรื่องเดียวจบ</h1>
 
-<div class="story">
-    <h3><a href="story1.html">เสียงเคาะใต้เตียง</a></h3>
-    <p>เรื่องสั้นเกี่ยวกับบางสิ่งที่ไม่ควรอยู่ใต้เตียง</p>
+<div class="story-card">
+    <img src="227192.jpg" alt="ปกเรื่อง">
+
+    <div class="story-content">
+        <h3>
+            <a href="story1.html">เสียงเคาะจากใต้เตียง</a>
+        </h3>
+        <p>
+            คืนแรกที่ย้ายเข้าหอ ฉันได้ยินเสียงเคาะจากใต้เตียง
+            แต่ไม่มีใครอยู่ในห้องนอกจากฉัน
+        </p>
+    </div>
 </div>
 
 <br>
-<a href="stories.html">← กลับหน้าหมวดหลัก</a>
+<a class="back" href="stories.html">← กลับหน้าหมวดหลัก</a>
 
 </body>
 </html>
