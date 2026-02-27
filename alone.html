@@ -16,21 +16,24 @@ body{
 h1{
     color:#cc0000;
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:50px;
     letter-spacing:2px;
 }
 
 /* GRID */
 .story-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:40px;
+    justify-items:center;
 }
 
 /* CARD */
 .story-card{
     background:#111;
     border:1px solid #aa0000;
+    width:100%;
+    max-width:260px;          /* 🔥 ขนาดการ์ดพอดี ไม่ใหญ่เกิน */
     transition:.3s;
     overflow:hidden;
 }
@@ -40,10 +43,11 @@ h1{
     box-shadow:0 0 25px rgba(170,0,0,0.6);
 }
 
-/* 🔥 ส่วนปก (สมบูรณ์ที่สุด) */
+/* COVER */
 .cover{
     width:100%;
-    aspect-ratio:3 / 4;   /* สัดส่วนปกนิยาย */
+    aspect-ratio:3 / 4;       /* สัดส่วนปกนิยาย */
+    max-height:340px;         /* 🔥 จำกัดความสูง */
     background:#000;
     display:flex;
     align-items:center;
@@ -52,19 +56,19 @@ h1{
 }
 
 .cover img{
-    width:100%;
-    height:100%;
-    object-fit:contain;   /* ไม่โดนครอป */
+    width:85%;                /* 🔥 ลดขนาดภาพลงให้พอดี */
+    height:85%;
+    object-fit:contain;       /* ไม่โดนครอป */
     transition:.4s ease;
 }
 
-/* ซูมเบา ๆ ตอนโฮเวอร์ */
 .story-card:hover .cover img{
     transform:scale(1.05);
 }
 
+/* CONTENT */
 .story-content{
-    padding:15px;
+    padding:18px;
 }
 
 .story-content h3{
@@ -87,11 +91,23 @@ h1{
     line-height:1.6;
 }
 
+/* BACK BUTTON */
 a.back{
     display:inline-block;
-    margin-top:50px;
+    margin-top:60px;
     color:#cc0000;
     text-decoration:none;
+}
+
+a.back:hover{
+    text-decoration:underline;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+    body{
+        padding:20px;
+    }
 }
 </style>
 </head>
@@ -124,7 +140,7 @@ a.back{
         <div class="story-content">
             <h3><a href="story2.html">วันที่ทุกคนลืมฉัน</a></h3>
             <p>
-                วันนี้เป็นเหมือนวันธรรมดาทั่วไปวันหนึ่ง เหมือนวันธรรมทั่วไปวันนึง
+                วันนี้เป็นเหมือนวันธรรมดาทั่วไปวันหนึ่ง
                 แต่ที่แปลกคือ วันนี้ทุกคนจำฉันไม่ได้
             </p>
         </div>
