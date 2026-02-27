@@ -28,14 +28,17 @@ h1{
     justify-items:center;
 }
 
-/* CARD */
+/* CARD (เปลี่ยนเป็น a) */
 .story-card{
     background:#111;
     border:1px solid #aa0000;
     width:100%;
-    max-width:260px;          /* 🔥 ขนาดการ์ดพอดี ไม่ใหญ่เกิน */
+    max-width:260px;
     transition:.3s;
     overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    display:block; /* สำคัญมาก */
 }
 
 .story-card:hover{
@@ -46,8 +49,8 @@ h1{
 /* COVER */
 .cover{
     width:100%;
-    aspect-ratio:3 / 4;       /* สัดส่วนปกนิยาย */
-    max-height:340px;         /* 🔥 จำกัดความสูง */
+    aspect-ratio:3 / 4;
+    max-height:340px;
     background:#000;
     display:flex;
     align-items:center;
@@ -56,9 +59,9 @@ h1{
 }
 
 .cover img{
-    width:85%;                /* 🔥 ลดขนาดภาพลงให้พอดี */
+    width:85%;
     height:85%;
-    object-fit:contain;       /* ไม่โดนครอป */
+    object-fit:contain;
     transition:.4s ease;
 }
 
@@ -73,16 +76,7 @@ h1{
 
 .story-content h3{
     margin:0 0 10px 0;
-}
-
-.story-content a{
     color:#cc0000;
-    text-decoration:none;
-    font-size:18px;
-}
-
-.story-content a:hover{
-    text-decoration:underline;
 }
 
 .story-content p{
@@ -119,32 +113,32 @@ a.back:hover{
 <div class="story-container">
 
     <!-- เรื่องที่ 1 -->
-    <div class="story-card">
+    <a href="story1.html" class="story-card">
         <div class="cover">
             <img src="227192.jpg" alt="ปกเรื่อง">
         </div>
         <div class="story-content">
-            <h3><a href="story1.html">เสียงเคาะใต้เตียง</a></h3>
+            <h3>เสียงเคาะใต้เตียง</h3>
             <p>
                 คืนแรกที่ย้ายเข้าหอ ฉันได้ยินเสียงเคาะจากใต้เตียง
                 แต่ไม่มีใครอยู่ในห้องนอกจากฉัน
             </p>
         </div>
-    </div>
+    </a>
 
     <!-- เรื่องที่ 2 -->
-    <div class="story-card">
+    <a href="story2.html" class="story-card">
         <div class="cover">
             <img src="file_0000000064e4720895ced95569ba490e.png" alt="ปกเรื่อง">
         </div>
         <div class="story-content">
-            <h3><a href="story2.html">วันที่ทุกคนลืมฉัน</a></h3>
+            <h3>วันที่ทุกคนลืมฉัน</h3>
             <p>
                 วันนี้เป็นเหมือนวันธรรมดาทั่วไปวันหนึ่ง
                 แต่ที่แปลกคือ วันนี้ทุกคนจำฉันไม่ได้
             </p>
         </div>
-    </div>
+    </a>
 
 </div>
 
