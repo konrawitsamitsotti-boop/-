@@ -6,57 +6,94 @@
 
 <style>
 body{
-    background:#0b0b0b;
+    background:linear-gradient(to bottom,#080808,#111);
     color:#ddd;
     font-family:Georgia, serif;
-    padding:60px;
+    padding:40px;
+    margin:0;
 }
 
 h1{
-    color:#aa0000;
+    color:#cc0000;
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:20px;
+    letter-spacing:2px;
 }
 
-/* การ์ดนิยาย */
-.story-card{
-    display:flex;
+/* ค้นหา */
+.search-box{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.search-box input{
+    width:60%;
+    padding:10px;
     background:#111;
     border:1px solid #aa0000;
-    margin-bottom:30px;
+    color:#ddd;
+    outline:none;
+}
+
+/* grid layout */
+.story-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* การ์ด */
+.story-card{
+    background:#111;
+    border:1px solid #aa0000;
     overflow:hidden;
     transition:.3s;
 }
 
 .story-card:hover{
-    box-shadow:0 0 20px rgba(170,0,0,0.6);
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(170,0,0,0.6);
 }
 
 .story-card img{
-    width:180px;
+    width:100%;
+    height:220px;
     object-fit:cover;
+    transition:.3s;
+}
+
+.story-card:hover img{
+    transform:scale(1.05);
 }
 
 .story-content{
-    padding:20px;
+    padding:15px;
 }
 
 .story-content h3{
-    margin-top:0;
+    margin:0 0 10px 0;
 }
 
 .story-content a{
-    color:#aa0000;
+    color:#cc0000;
     text-decoration:none;
+    font-size:18px;
+}
+
+.story-content a:hover{
+    text-decoration:underline;
 }
 
 .story-content p{
     color:#bbb;
+    font-size:14px;
     line-height:1.6;
 }
 
 a.back{
-    color:#aa0000;
+    display:inline-block;
+    margin-top:40px;
+    color:#cc0000;
     text-decoration:none;
 }
 </style>
@@ -66,22 +103,43 @@ a.back{
 
 <h1>นิยายเรื่องเดียวจบ</h1>
 
-<div class="story-card">
-    <img src="227192.jpg" alt="ปกเรื่อง">
-
-    <div class="story-content">
-        <h3>
-            <a href="story1.html">เสียงเคาะใต้เตียง</a>
-        </h3>
-        <p>
-            คืนแรกที่ย้ายเข้าหอ ฉันได้ยินเสียงเคาะจากใต้เตียง
-            แต่ไม่มีใครอยู่ในห้องนอกจากฉัน
-        </p>
-    </div>
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="ค้นหาชื่อนิยาย..." onkeyup="searchStory()">
 </div>
 
-<br>
+<div class="story-container" id="storyList">
+
+    <div class="story-card">
+        <img src="227192.jpg" alt="ปกเรื่อง">
+        <div class="story-content">
+            <h3><a href="story1.html">เสียงเคาะใต้เตียง</a></h3>
+            <p>คืนแรกที่ย้ายเข้าหอ ฉันได้ยินเสียงเคาะจากใต้เตียง แต่ไม่มีใครอยู่ในห้องนอกจากฉัน</p>
+        </div>
+    </div>
+
+    <div class="story-card">
+        <img src="ghost_room.jpg" alt="ปกเรื่อง">
+        <div class="story-content">
+            <h3><a href="story2.html">ห้องข้างๆ ที่ไม่มีคนอยู่</a></h3>
+            <p>ทุกคืนตีสาม จะมีเสียงเปิดประตูจากห้องข้างๆ ทั้งที่ห้องนั้นไม่มีใครเช่า</p>
+        </div>
+    </div>
+
+</div>
+
 <a class="back" href="stories.html">← กลับหน้าหมวดหลัก</a>
+
+<script>
+function searchStory() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let cards = document.querySelectorAll(".story-card");
+
+    cards.forEach(card => {
+        let title = card.innerText.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+</script>
 
 </body>
 </html>
